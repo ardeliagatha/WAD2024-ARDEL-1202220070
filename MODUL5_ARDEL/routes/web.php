@@ -9,14 +9,15 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 Route::prefix('dosens')->group(function () {
-    Route::get('/dosens', [DosenController::class, 'index'])->name('dosens.index');
+    Route::get('/', [DosenController::class, 'index'])->name('dosens.index');
     Route::get('/create', [DosenController::class, 'getCreateForm'])->name('dosens.create');
     Route::post('/', [DosenController::class, 'store'])->name('dosens.store');
     Route::get('/{id}', [DosenController::class, 'show'])->name('dosens.show');
-    Route::get('/dosen/{id}/edit', [DosenController::class, 'getEditForm'])->name('dosens.edit');
-    Route::put('/dosens/{id}', [DosenController::class, 'update'])->name('dosens.update');
-    Route::delete('/dosens/{id}', [DosenController::class, 'destroy'])->name('dosens.destroy');
+    Route::get('/{id}/edit', [DosenController::class, 'getEditForm'])->name('dosens.edit');
+    Route::put('/{id}', [DosenController::class, 'update'])->name('dosens.update');
+    Route::delete('/{id}', [DosenController::class, 'destroy'])->name('dosens.destroy');
 });
+
 
 Route::prefix('mahasiswas')->group(function () {
     Route::get('/mahasiswas', [MahasiswaController::class, 'index'])->name('mahasiswas.index');
